@@ -35,8 +35,6 @@ Cada script contém **documentação detalhada no próprio código**, incluindo:
 
 ---
 
----
-
 ## Scripts Disponíveis
 
 Atualmente o repositório possui **2 scripts**, incluindo:
