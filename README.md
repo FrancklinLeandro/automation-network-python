@@ -35,18 +35,4 @@ Cada script contém **documentação detalhada no próprio código**, incluindo:
 
 ---
 
-## Scripts Disponíveis
-
-Atualmente o repositório possui **2 scripts**, incluindo:
-
-- switch-csv.py
-- ap-scan.py
-
----
-
-## Dependências
-
-Algumas automações podem exigir:
-
-- python3
-- bibliotecas padrão do Python (ex: shutil, subprocess, os)
+## Scripts
