@@ -57,3 +57,12 @@ Realiza **verificação de conectividade de Access Points (APs)** via ICMP (`pin
 ```bash
 ./ap-scan.py
 ```
+
+## Estrutura do Repositório
+```
+automation-network-python/
+├── connectivity/
+│   ├── ap-scan.py
+│   └── switch-csv.py
+└── README.md
+```
