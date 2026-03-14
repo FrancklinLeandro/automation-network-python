@@ -65,6 +65,5 @@ automation-network-python/
 │   ├── ap-scan.py
 │   └── switch-csv.py
 ├── NOTA.md
-│ 
 └── README.md
 ```
