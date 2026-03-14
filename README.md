@@ -36,3 +36,20 @@ Cada script contém **documentação detalhada no próprio código**, incluindo:
 ---
 
 ## Scripts
+### switch-csv.py
+Realiza **teste de conectividade (ping) em múltiplos switches** listados em arquivos CSV, classificando cada dispositivo como **UP ou DOWN** e gerando **relatório consolidado em log**, facilitando verificações rápidas de disponibilidade da infraestrutura de rede.
+
+**Uso:**
+
+```bash
+./switch-csv.py
+```
+
+### ap-scan.py
+Realiza **verificação de conectividade de Access Points (APs)** utilizando testes ICMP (`ping`), lendo uma lista estruturada de dispositivos e registrando **status UP/DOWN em log diário**, auxiliando no monitoramento da infraestrutura wireless.
+
+**Uso:**
+
+```bash
+./ap-scan.py
+```
