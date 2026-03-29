@@ -54,6 +54,7 @@
 
 import os
 import socket
+# Biblioteca usada para criar conexões de rede (TCP neste caso)
 import datetime
 
 # Arquivo com lista de hosts
@@ -61,8 +62,9 @@ ARQUIVO_HOSTS = os.path.join(os.environ["HOME"], "rede", "lista_hosts.txt")
 
 # Lista de portas TCP
 PORTAS_TCP = [22, 80, 443, 53]
+# Define portas comuns: SSH, HTTP, HTTPS e DNS
 
-# Timeout (segundos)
+# Timeout de conexão (em segundos
 TIMEOUT = 3
 
 # Diretório e arquivo de log
@@ -70,18 +72,20 @@ DIRETORIO_LOG = os.path.join(os.environ["HOME"], "rede", "logs")
 DATA_ATUAL = datetime.datetime.now().strftime("%d-%m-%Y")
 ARQUIVO_LOG = os.path.join(DIRETORIO_LOG, f"portas_{DATA_ATUAL}.log")
 
-# Verifica se o arquivo existe
+# Verifica se o arquivo de hosts existe
 if not os.path.isfile(ARQUIVO_HOSTS):
     print(f"ERRO: Arquivo {ARQUIVO_HOSTS} não encontrado.")
     exit(1)
 
-# Cria diretório de log
+# Cria o diretório de logs se não existir
 os.makedirs(DIRETORIO_LOG, exist_ok=True)
 
 # Função para escrever no log e printar (equivalente ao tee)
 def log_print(mensagem):
+    # Função reutilizável para evitar repetição de código
     print(mensagem)
     with open(ARQUIVO_LOG, "a") as log:
+        # Escreve no arquivo de log (sem sobrescrever)
         log.write(mensagem + "\n")
 
 # Cabeçalho
@@ -96,7 +100,7 @@ with open(ARQUIVO_LOG, "a") as log:
     log.write(f" Data: {datetime.datetime.now()}\n")
     log.write("==================================================\n\n")
 
-# Leitura dos hosts
+#  Lê o arquivo de hosts linha a linha 
 with open(ARQUIVO_HOSTS, "r") as arquivo:
     for linha in arquivo:
         HOST = linha.strip()
@@ -104,19 +108,24 @@ with open(ARQUIVO_HOSTS, "r") as arquivo:
         # Ignora linhas vazias ou comentadas
         if not HOST or HOST.startswith("#"):
             continue
+            # Pula para próxima linha
 
         log_print(f"Host: {HOST}")
+        # Registra o host atual sendo testado
 
         # Testa cada porta
         for PORTA in PORTAS_TCP:
 
             # Cria socket TCP
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            # AF_INET = IPv4 | SOCK_STREAM = TCP
             sock.settimeout(TIMEOUT)
+            # Define tempo máximo de espera da conexão
 
             try:
+                # Tenta conectar ao host/porta
                 resultado = sock.connect_ex((HOST, PORTA))
-                # connect_ex retorna 0 se conectou com sucesso
+                # Retorna 0 se sucesso, outro valor se falha
 
                 if resultado == 0:
                     log_print(f"  Porta {PORTA}/TCP: ABERTA")
@@ -124,15 +133,16 @@ with open(ARQUIVO_HOSTS, "r") as arquivo:
                     log_print(f"  Porta {PORTA}/TCP: FECHADA ou INACESSÍVEL")
 
             except socket.gaierror:
-                # Erro de resolução de nome (DNS)
+                # Erro relacionado a DNS (host inválido ou não resolvido)
                 log_print(f"  Porta {PORTA}/TCP: HOST INVÁLIDO")
 
             except Exception as e:
-                # Qualquer outro erro de rede
+               # Captura qualquer outro erro inesperado
                 log_print(f"  Porta {PORTA}/TCP: ERRO ({e})")
 
             finally:
                 sock.close()
+                # Fecha o socket sempre, evitando vazamento de recursos
 
         log_print("--------------------------------------------------")
 
