@@ -62,6 +62,7 @@ Realiza **verificação de conectividade de Access Points (APs)** via ICMP (`pin
 ```
 automation-network-python/
 ├── connectivity/
+│   ├── TCP-port-checker.py
 │   ├── ap-scan.py
 │   └── switch-csv.py
 ├── NOTA.md
