@@ -1,5 +1,3 @@
-Próximo:
-
 #!/usr/bin/env python3
 # ==========================================================
 # SCRIPT: Verificação de Portas TCP em Hosts de Rede
