@@ -58,6 +58,12 @@ Realiza **verificação de conectividade de Access Points (APs)** via ICMP (`pin
 ./ap-scan.py
 ```
 
+### TCP-port-checker.py
+Realiza **verificação de portas TCP em múltiplos hosts**, utilizando sockets nativos, com **log persistente e tratamento de erros de rede/DNS**.
+```bash
+./TCP-port-checker.py
+```
+
 ## Estrutura do Repositório
 ```
 automation-network-python/
