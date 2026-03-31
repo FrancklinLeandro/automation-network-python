@@ -31,7 +31,7 @@
 #   - Estrutura simples e eficiente para monitoramento em lote
 #
 # Autor: Francklin Leandro
-# Data: 23/02/2026
+# Data: 31/03/2026
 #
 # Requisitos:
 #   - python 3
