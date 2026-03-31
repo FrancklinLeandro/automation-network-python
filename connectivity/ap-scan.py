@@ -40,13 +40,13 @@
 #   - Biblioteca datetime
 #
 # Arquivo de Entrada:
-#   os.path.join(os.environ["HOME"], "PINGS", "ARQUIVOS_AP", "lista_APs.txt")
+#   $HOME/PINGS/ARQUIVOS_AP/lista_APs.txt
 #
 # Estrutura do Arquivo:
 #   NOME_AP HOST IP
 #
 # Diretório de Logs:
-#   os.path.join(os.environ["HOME"], "PINGS", "LOG_AP")
+#   $HOME/PINGS/LOG_AP
 #
 # Uso:
 #   ./ap-scan.py
