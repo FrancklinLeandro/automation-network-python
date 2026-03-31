@@ -64,6 +64,12 @@ Realiza **verificação de portas TCP em múltiplos hosts**, utilizando sockets 
 ./TCP-port-checker.py
 ```
 
+### host-monitor.py
+Realiza **monitoramento de conectividade (ping em lote)**, com execução via `subprocess`, log persistente e contagem de hosts UP/DOWN.
+```bash
+./host-monitor.py
+```
+
 ## Estrutura do Repositório
 ```
 automation-network-python/
