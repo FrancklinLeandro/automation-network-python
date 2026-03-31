@@ -34,10 +34,10 @@
 #   - Biblioteca datetime
 #
 # Diretório de Entrada:
-#   os.path.expanduser("~/PINGS/ARQUIVOS_SWITCH")
+#   $HOME/PINGS/ARQUIVOS_SWITCH
 #
 # Diretório de Log:
-#   os.path.expanduser(f"~/PINGS/LOG_SWITCH)
+#   $HOME/PINGS/LOG_SWITCH
 #
 # Saída:
 #   Relatório no formato:
