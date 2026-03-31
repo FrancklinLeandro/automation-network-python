@@ -70,6 +70,7 @@ automation-network-python/
 ├── connectivity/
 │   ├── TCP-port-checker.py
 │   ├── ap-scan.py
+│   ├── host-monitor.py
 │   └── switch-csv.py
 ├── NOTA.md
 └── README.md
