@@ -43,10 +43,10 @@
 #   - Biblioteca datetime
 #
 # Arquivo de Entrada:
-#   os.path.join(os.environ["HOME"], "rede", "lista_hosts.txt")
+#   $HOME/rede/lista_hosts.txt
 #
 # Diretório de Logs:
-#   os.path.join(os.environ["HOME"], "rede", "logs")
+#   $HOME/rede/logs
 #
 # Uso:
 #   ./TCP-port-checker.py
