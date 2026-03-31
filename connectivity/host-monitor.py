@@ -1,18 +1,53 @@
 #!/usr/bin/env python3
-# Define o interpretador Python 3 a ser usado na execução
-
 # ==========================================================
 # SCRIPT: Monitoramento de Conectividade em Lote (Ping)
 #
 # Objetivo:
 #   Verificar a conectividade de múltiplos IPs ou hostnames
-#   através do comando ping e registrar os resultados em log.
+#   através de testes ICMP (ping), registrando os resultados
+#   em arquivo de log.
 #
+# Cenário:
+#   Utilizado para:
+#   - Monitoramento básico de servidores e dispositivos
+#   - Teste rápido de conectividade de rede
+#   - Verificação de disponibilidade de hosts
+#   - Diagnóstico inicial antes de troubleshooting avançado
 #
-# Observação:
-#   - Ping não é implementado de forma simples em Python puro
-#     (exige raw sockets e privilégios elevados)
-#   - Portanto, uso de subprocess é necessário
+# Funcionamento:
+#   - Lê lista de hosts a partir de arquivo local
+#   - Cria diretório de logs automaticamente
+#   - Define quantidade de pings e timeout por host
+#   - Executa comando ping via subprocess
+#   - Identifica hosts como UP ou DOWN com base no retorno
+#   - Registra resultados em log com data
+#   - Exibe resumo final com total de hosts ativos/inativos
+#
+# Diferencial Técnico:
+#   - Uso de subprocess para execução de ping (contorna limitação de raw socket)
+#   - Controle de quantidade de pacotes e timeout
+#   - Função de log estilo "tee" (terminal + arquivo)
+#   - Contabilização de hosts UP/DOWN
+#   - Estrutura simples e eficiente para monitoramento em lote
+#
+# Autor: Francklin Leandro
+# Data: 23/02/2026
+#
+# Requisitos:
+#   - python 3
+#   - utilitário ping disponível no sistema
+#   - Biblioteca os
+#   - Biblioteca datetime
+#   - Biblioteca subprocess
+#
+# Arquivo de Entrada:
+#   $HOME/rede/lista_hosts.txt
+#
+# Diretório de Logs:
+#   $HOME/rede/logs
+#
+# Uso:
+#   ./host-monitor.py
 # ==========================================================
 
 import os
