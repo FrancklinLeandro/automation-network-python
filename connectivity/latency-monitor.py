@@ -15,31 +15,18 @@
 # ==========================================================
 
 import os
-# Manipulação de caminhos e variáveis de ambiente
-
 import datetime
-# Manipulação de data e hora
-
 import subprocess
-# Execução de comandos do sistema (ping)
-
 import re
 # Expressões regulares para extrair informações da saída do ping
 
-# Arquivo de entrada
 ARQUIVO_DESTINOS = os.path.join(os.environ["HOME"], "rede", "lista_destinos.txt")
-# Caminho completo do arquivo com destinos
 
-# Diretório de logs
 DIRETORIO_LOG = os.path.join(os.environ["HOME"], "rede", "logs")
-# Define diretório onde logs serão armazenados
 
-# Data atual
 DATA_ATUAL = datetime.datetime.now().strftime("%d-%m-%Y")
-# Formata data para uso no nome do arquivo
 
 ARQUIVO_LOG = os.path.join(DIRETORIO_LOG, f"latencia_{DATA_ATUAL}.log")
-# Define nome do arquivo de log com base na data
 
 # Configurações
 QTD_PACOTES = 10
@@ -53,12 +40,8 @@ if not os.path.isfile(ARQUIVO_DESTINOS):
 # Garante que o arquivo de entrada existe
 
     print(f"ERRO: Arquivo {ARQUIVO_DESTINOS} não encontrado.")
-    # Exibe erro ao usuário
-
     exit(1)
-    # Encerra execução com erro
 
-# Cria diretório
 os.makedirs(DIRETORIO_LOG, exist_ok=True)
 # Cria diretório se não existir
 
@@ -67,8 +50,6 @@ def log_print(msg):
 # Função para imprimir e salvar no log
 
     print(msg)
-    # Exibe no terminal
-
     with open(ARQUIVO_LOG, "a") as log:
     # Abre log em modo append
 
@@ -76,13 +57,8 @@ def log_print(msg):
         # Escreve mensagem no arquivo
 
 log_print("==================================================")
-# Linha visual no log e terminal
-
 log_print(" MONITORAMENTO DE LATÊNCIA E PERDA DE PACOTES")
-
 log_print(f" Data: {datetime.datetime.now()}")
-# Registra data/hora atual
-
 log_print("==================================================\n")
 
 # Leitura dos destinos
@@ -107,7 +83,6 @@ with open(ARQUIVO_DESTINOS, "r") as arquivo:
 
         # Executa ping capturando saída
         resultado = subprocess.run(
-        # Executa comando ping
 
             ["ping", "-c", str(QTD_PACOTES), "-i", str(INTERVALO), DESTINO],
             # -c = quantidade de pacotes | -i = intervalo entre pacotes
@@ -167,16 +142,9 @@ with open(ARQUIVO_DESTINOS, "r") as arquivo:
 
         log_print(f"  Perda de pacotes : {PERDA}%")
         # Exibe percentual de perda
-
         log_print(f"  Latência média   : {LAT_MEDIA} ms")
         # Exibe latência média em ms
-
         log_print("--------------------------------------------------")
-        # Separador visual
 
-# Finalização
 print("\nMonitoramento concluído.")
-# Indica fim da execução
-
 print(f"Log salvo em: {ARQUIVO_LOG}")
-# Mostra caminho do arquivo de log
