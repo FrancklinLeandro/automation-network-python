@@ -1,17 +1,55 @@
 #!/usr/bin/env python3
-# Define o interpretador Python 3
-
 # ==========================================================
 # SCRIPT: Monitoramento de Latência e Perda de Pacotes
 #
 # Objetivo:
 #   Medir latência média e percentual de perda de pacotes
-#   para múltiplos destinos listados em arquivo.
+#   para múltiplos destinos, auxiliando na análise de
+#   qualidade de rede.
 #
+# Cenário:
+#   Utilizado para:
+#   - Monitoramento de links WAN
+#   - Diagnóstico de instabilidade de rede
+#   - Verificação de qualidade de conexão com serviços críticos
+#   - Coleta de evidências para troubleshooting
 #
-# Observação:
-#   - Coleta de métricas depende do comando ping
-#   - Parsing feito em Python (substitui grep e awk)
+# Funcionamento:
+#   - Lê lista de destinos a partir de arquivo local
+#   - Cria diretório de logs automaticamente
+#   - Define quantidade de pacotes e intervalo entre pings
+#   - Executa comando ping via subprocess capturando saída
+#   - Analisa saída do ping utilizando expressões regulares
+#   - Extrai percentual de perda de pacotes
+#   - Extrai latência média (RTT avg)
+#   - Registra resultados formatados em log
+#
+# Diferencial Técnico:
+#   - Parsing da saída do ping em Python (dispensa grep/awk)
+#   - Uso de regex para extração de métricas
+#   - Captura completa da saída do comando para análise
+#   - Estrutura adaptável para monitoramento contínuo
+#   - Geração de log estruturado para auditoria
+#
+# Autor: Francklin Leandro
+# Data: 01/04/2026
+#
+# Requisitos:
+#   - python 3
+#   - utilitário ping disponível no sistema
+#   - Biblioteca os
+#   - Biblioteca datetime
+#   - Biblioteca subprocess
+#   - Biblioteca re
+#
+# Arquivo de Entrada:
+#   $HOME/rede/lista_destinos.txt
+#
+# Diretório de Logs:
+#   $HOME/rede/logs
+#
+# Uso:
+#   python3 monitor_latencia.py
 # ==========================================================
 
 import os
