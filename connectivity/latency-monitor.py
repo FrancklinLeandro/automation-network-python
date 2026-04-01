@@ -49,7 +49,7 @@
 #   $HOME/rede/logs
 #
 # Uso:
-#   python3 monitor_latencia.py
+#   ./latency-monitor.py
 # ==========================================================
 
 import os
