@@ -77,6 +77,7 @@ automation-network-python/
 │   ├── TCP-port-checker.py
 │   ├── ap-scan.py
 │   ├── host-monitor.py
+│   ├── latency-monitor.py
 │   └── switch-csv.py
 ├── NOTA.md
 └── README.md
