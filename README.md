@@ -70,6 +70,12 @@ Realiza **monitoramento de conectividade (ping em lote)**, com execução via `s
 ./host-monitor.py
 ```
 
+### latency-monitor.py
+Realiza **monitoramento de latência média e perda de pacotes**, com parsing da saída do `ping` via regex e geração de log estruturado.
+```bash
+./latency-monitor.py
+```
+
 ## Estrutura do Repositório
 ```
 automation-network-python/
