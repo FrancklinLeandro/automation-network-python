@@ -76,6 +76,12 @@ Realiza **monitoramento de latência média e perda de pacotes**, com parsing da
 ./latency-monitor.py
 ```
 
+### traceroute.py
+Realiza **diagnóstico de rota de rede (traceroute em lote)**, com execução via `subprocess`, validação de dependência e log completo dos hops.
+```bash
+./traceroute.py
+```
+
 ## Estrutura do Repositório
 ```
 automation-network-python/
@@ -84,7 +90,8 @@ automation-network-python/
 │   ├── ap-scan.py
 │   ├── host-monitor.py
 │   ├── latency-monitor.py
-│   └── switch-csv.py
+│   ├── switch-csv.py
+│   └── traceroute.py
 ├── NOTA.md
 └── README.md
 ```
