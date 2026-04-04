@@ -1,17 +1,54 @@
 #!/usr/bin/env python3
-
 # ==========================================================
 # SCRIPT: Diagnóstico de Rota de Rede (Traceroute em Lote)
 #
 # Objetivo:
 #   Executar traceroute para múltiplos destinos listados
-#   em um arquivo, registrando os resultados em log diário.
+#   em um arquivo, permitindo análise de caminhos de rede
+#   e identificação de possíveis gargalos.
 #
+# Cenário:
+#   Utilizado para:
+#   - Análise de rotas até servidores externos
+#   - Identificação de problemas de roteamento
+#   - Diagnóstico de latência entre saltos
+#   - Troubleshooting de conectividade avançada
 #
-# Observação:
-#   - Não existe implementação simples de traceroute em Python puro
-#     (exige manipulação de TTL + ICMP/UDP com privilégios)
-#   - Portanto, uso de subprocess é necessário
+# Funcionamento:
+#   - Lê lista de destinos a partir de arquivo local
+#   - Verifica se o comando traceroute está disponível
+#   - Cria diretório de logs automaticamente
+#   - Define número máximo de saltos (TTL)
+#   - Executa traceroute via subprocess para cada destino
+#   - Captura saída completa do comando
+#   - Registra resultados no terminal e em arquivo de log
+#
+# Diferencial Técnico:
+#   - Uso de subprocess para execução do traceroute
+#   - Verificação prévia de dependência com shutil.which
+#   - Registro completo da rota (todos os hops)
+#   - Função de log estilo "tee"
+#   - Estrutura adequada para análise posterior de rede
+#
+# Autor: Francklin Leandro
+# Data: 04/04/2026
+#
+# Requisitos:
+#   - python 3
+#   - traceroute instalado no sistema
+#   - Biblioteca os
+#   - Biblioteca datetime
+#   - Biblioteca subprocess
+#   - Biblioteca shutil
+#
+# Arquivo de Entrada:
+#   $HOME/rede/lista_destinos.txt
+#
+# Diretório de Logs:
+#   $HOME/rede/logs
+#
+# Uso:
+#   ./traceroute.py
 # ==========================================================
 
 import os
