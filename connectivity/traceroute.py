@@ -75,17 +75,21 @@ with open(ARQUIVO_DESTINOS, "r") as arquivo:
             stdout=subprocess.PIPE,
             # Captura saída padrão para análise
             stderr=subprocess.STDOUT,
+            # Redireciona erros para a saída padrão
             text=True
             # Retorna saída como string (não bytes)
         )
 
         # Escreve saída completa no log e terminal
         for linha_saida in resultado.stdout.splitlines():
+        # Percorre cada linha da saída do traceroute
+            
             log_print(linha_saida)
+            # Registra cada linha no log e terminal
 
         log_print("")
+        # Linha em branco para organização visual
 
-# Finalização
 log_print("==================================================")
 log_print(" Diagnóstico concluído.")
 log_print(f" Log salvo em: {ARQUIVO_LOG}")
