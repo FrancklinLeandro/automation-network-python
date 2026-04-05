@@ -60,8 +60,10 @@ import subprocess
 import shutil
 # Copia, move e remove arquivos/diretórios eficientemente.
 
+# Arquivo com lista de hosts de destinos
 ARQUIVO_DESTINOS = os.path.join(os.environ["HOME"], "rede", "lista_destinos.txt")
 
+# Diretório de log
 DIRETORIO_LOG = os.path.join(os.environ["HOME"], "rede", "logs")
 
 # Data atual
@@ -71,13 +73,13 @@ ARQUIVO_LOG = os.path.join(DIRETORIO_LOG, f"traceroute_{DATA_ATUAL}.log")
 # Número máximo de saltos
 MAX_SALTOS = 30
 
-# Verifica se o traceroute está disponível
+# Verifica se o comando traceroute está disponível
 if shutil.which("traceroute") is None:
     print("ERRO: comando 'traceroute' não encontrado.")
     print("Instale com: sudo apt install traceroute")
     exit(1)
 
-# Verifica arquivo de destinos
+# Verifica se arquivo de destinos existe
 if not os.path.isfile(ARQUIVO_DESTINOS):
     print(f"ERRO: Arquivo {ARQUIVO_DESTINOS} não encontrado.")
     exit(1)
@@ -101,6 +103,7 @@ log_print("==================================================\n")
 with open(ARQUIVO_DESTINOS, "r") as arquivo:
     for linha in arquivo:
         DESTINO = linha.strip()
+        # Remove espaços e quebras de linha
 
          # Ignora linhas vazias ou comentadas
         if not DESTINO or DESTINO.startswith("#"):
