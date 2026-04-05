@@ -63,12 +63,15 @@ DIRETORIO_SWITCHES = os.path.expanduser("~/PINGS/ARQUIVOS_SWITCH")
 ARQUIVOS_SWITCHES = glob.glob(os.path.join(DIRETORIO_SWITCHES, "*.csv"))
 
 data_atual = datetime.datetime.now().strftime("%d-%m-%Y")
+
+# Arquivo de log
 LOG = os.path.expanduser(f"~/PINGS/LOG_SWITCH/switch_{data_atual}.log")
 
 # Garante que o diretório de log exista
 os.makedirs(os.path.dirname(LOG), exist_ok=True)
 
 with open(LOG, "w") as log:
+    # Escreve no arquivo de log (sobrescrevendo o arquivo)
     linha = f"\n------ DATA: {data_atual} ------"
     print(linha)
     log.write(linha + "\n")
@@ -100,6 +103,7 @@ with open(LOG, "w") as log:
             # Ignora linhas vazias ou comentadas
             if not linha_csv or linha_csv.startswith("#"):
                 continue
+                 # Pula para próxima linha
 
             try:
                 nome, ip, site, modelo = linha_csv.split(";")
@@ -113,10 +117,13 @@ with open(LOG, "w") as log:
             resultado = subprocess.run(
                 ["ping", "-c", "2", "-W", "2", ip.strip()],
                 stdout=subprocess.DEVNULL,
+                # Descarta saída padrão (não polui terminal)
                 stderr=subprocess.DEVNULL
+                # Ignora erros do comando
             )
 
             if resultado.returncode == 0:
+                # Código 0 indica sucesso (host respondeu)
                 status = "UP"
             else:
                 status = "DOWN"
