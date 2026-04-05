@@ -53,8 +53,11 @@
 # ==========================================================
 
 import os
+# Manipula arquivos, diretórios e ambiente do sistema.
 import datetime
+# Manipula datas e horas.
 import subprocess
+# Executa comandos shell externos.
 import re
 # Expressões regulares para extrair informações da saída do ping
 
