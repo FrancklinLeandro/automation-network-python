@@ -53,9 +53,11 @@
 # ==========================================================
 
 import os
+# Manipula arquivos, diretórios e ambiente do sistema.
 import socket
 # Biblioteca usada para criar conexões de rede (TCP neste caso)
 import datetime
+# Manipula datas e horas.
 
 # Arquivo com lista de hosts
 ARQUIVO_HOSTS = os.path.join(os.environ["HOME"], "rede", "lista_hosts.txt")
