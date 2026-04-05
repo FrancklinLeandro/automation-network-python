@@ -123,6 +123,7 @@ with open(LOG, "w") as log:
             )
 
             if resultado.returncode == 0:
+                # Verifica se o último comando (ping) foi bem sucedido
                 # Código 0 indica sucesso (host respondeu)
                 status = "UP"
             else:
