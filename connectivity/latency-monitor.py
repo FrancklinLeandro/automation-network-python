@@ -61,12 +61,15 @@ import subprocess
 import re
 # Expressões regulares para extrair informações da saída do ping
 
+# Arquivo de hosts de destinos
 ARQUIVO_DESTINOS = os.path.join(os.environ["HOME"], "rede", "lista_destinos.txt")
 
+# Diretório de log
 DIRETORIO_LOG = os.path.join(os.environ["HOME"], "rede", "logs")
 
 DATA_ATUAL = datetime.datetime.now().strftime("%d-%m-%Y")
 
+# Arquivo de log
 ARQUIVO_LOG = os.path.join(DIRETORIO_LOG, f"latencia_{DATA_ATUAL}.log")
 
 # Configurações
@@ -81,7 +84,9 @@ if not os.path.isfile(ARQUIVO_DESTINOS):
 # Garante que o arquivo de entrada existe
 
     print(f"ERRO: Arquivo {ARQUIVO_DESTINOS} não encontrado.")
+    
     exit(1)
+    # Sai do script
 
 os.makedirs(DIRETORIO_LOG, exist_ok=True)
 # Cria diretório se não existir
@@ -96,6 +101,7 @@ def log_print(msg):
 
         log.write(msg + "\n")
         # Escreve mensagem no arquivo
+        # Escreve no arquivo de log (sem sobrescrever)
 
 log_print("==================================================")
 log_print(" MONITORAMENTO DE LATÊNCIA E PERDA DE PACOTES")
