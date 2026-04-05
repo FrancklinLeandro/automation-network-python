@@ -53,10 +53,16 @@
 # ==========================================================
 
 import os
+# Manipula arquivos, diretórios e ambiente do sistema.
 import subprocess
+# Executa comandos shell externos.
 import datetime
+# Manipula datas e horas.
 
+# Diretório de log
 LOG_DIR = os.path.join(os.environ["HOME"], "PINGS", "LOG_AP")
+
+#Cria diretório de log, caso não exista
 os.makedirs(LOG_DIR, exist_ok=True)
 
 # Arquivo contendo: NOME_AP HOST IP
@@ -69,19 +75,22 @@ DATA_ATUAL = datetime.datetime.now().strftime("%d-%m-%Y")
 LOG = os.path.join(LOG_DIR, f"ap_{DATA_ATUAL}.log")
 
 print(f"\n------ DATA: {DATA_ATUAL} ------")
-with open(LOG, "w", encoding="utf-8") as f:
+with open(LOG, "w") as f:
+    # Escreve no arquivo de log (sobrescrevendo o arquivo)
     f.write(f"\n------ DATA: {DATA_ATUAL} ------\n")
 
 print("NOME_AP; HOST; IP; STATUS")
-with open(LOG, "a", encoding="utf-8") as f:
+with open(LOG, "a") as f:
+    # Escreve no arquivo de log (sem sobrescrever)
     f.write("NOME_AP; HOST; IP; STATUS\n")
 
 print("\n------ INICIANDO VERIFICAÇÃO DOS APs ------")
-with open(LOG, "a", encoding="utf-8") as f:
+with open(LOG, "a") as f:
+    # Escreve no arquivo de log (sem sobrescrever)
     f.write("\n------ INICIANDO VERIFICAÇÃO DOS APs ------\n\n")
 
 # Lê o arquivo linha a linha
-with open(ARQUIVO_APS, "r", encoding="utf-8") as arquivo:
+with open(ARQUIVO_APS, "r") as arquivo:
     for linha in arquivo:
         linha = linha.strip()
 
@@ -104,6 +113,7 @@ with open(ARQUIVO_APS, "r", encoding="utf-8") as arquivo:
             stderr=subprocess.DEVNULL
         )
 
+        # Verifica se o comando (ping) foi bem sucedido
         if resultado.returncode == 0:
             STATUS = "UP"
         else:
@@ -114,10 +124,11 @@ with open(ARQUIVO_APS, "r", encoding="utf-8") as arquivo:
         print("")
 
         # Grava no log
-        with open(LOG, "a", encoding="utf-8") as f:
+        with open(LOG, "a") as f:
+            # Escreve no arquivo de log (sem sobrescrever)
             f.write(f"{NOME_AP}; {HOST}; {IP}; {STATUS}\n\n")
 
 # Finalização
 print("\n------ VERIFICAÇÃO CONCLUÍDA ------")
-with open(LOG, "a", encoding="utf-8") as f:
+with open(LOG, "a") as f:
     f.write("\n------ VERIFICAÇÃO CONCLUÍDA ------\n")
