@@ -51,7 +51,9 @@
 # ==========================================================
 
 import os
+# Manipula arquivos, diretórios e ambiente do sistema.
 import datetime
+# Manipula datas e horas.
 import subprocess
 # Permite executar comandos do sistema operacional (como ping)
 
@@ -102,13 +104,14 @@ def log_print(mensagem):
 
         log.write(mensagem + "\n")
         # Escreve a mensagem no log
+        # Escreve no arquivo de log (sem sobrescrever)
 
 print("==============================================")
 print(" INICIANDO MONITORAMENTO DE CONECTIVIDADE")
 print(f" Data/Hora: {datetime.datetime.now()}")
 print("==============================================\n")
 
-# Leitura dos hosts
+# Leitura dos hosts linha a linha
 with open(ARQUIVO_HOSTS, "r") as arquivo:
 # Abre o arquivo contendo os hosts
 
