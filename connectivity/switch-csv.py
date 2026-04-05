@@ -48,9 +48,13 @@
 # ==========================================================
 
 import os
+# Manipula arquivos, diretórios e ambiente do sistema.
 import glob
+# Localiza arquivos/diretórios por padrões (wildcards).
 import datetime
+# Manipula datas e horas.
 import subprocess
+#Executa comandos shell externos.
 
 # Diretório onde estão os CSVs dos switches
 DIRETORIO_SWITCHES = os.path.expanduser("~/PINGS/ARQUIVOS_SWITCH")
