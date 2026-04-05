@@ -83,6 +83,7 @@ if not os.path.isfile(ARQUIVO_HOSTS):
     print(f"ERRO: Arquivo {ARQUIVO_HOSTS} não encontrado.")
 
     exit(1)
+    # Sai do script
 
 os.makedirs(DIRETORIO_LOG, exist_ok=True)
 # Cria diretório caso não exista (sem erro se já existir)
