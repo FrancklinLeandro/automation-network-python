@@ -52,9 +52,13 @@
 # ==========================================================
 
 import os
+# Manipula arquivos, diretórios e ambiente do sistema.
 import datetime
+# Manipula datas e horas.
 import subprocess
+# Executa comandos shell externos.
 import shutil
+# Copia, move e remove arquivos/diretórios eficientemente.
 
 ARQUIVO_DESTINOS = os.path.join(os.environ["HOME"], "rede", "lista_destinos.txt")
 
