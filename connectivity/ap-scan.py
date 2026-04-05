@@ -110,10 +110,13 @@ with open(ARQUIVO_APS, "r") as arquivo:
         resultado = subprocess.run(
             ["ping", "-c", "3", "-W", "3", IP],
             stdout=subprocess.DEVNULL,
+            # Descarta saída padrão (não polui terminal)
             stderr=subprocess.DEVNULL
+            # Ignora erros do comando
         )
 
-        # Verifica se o comando (ping) foi bem sucedido
+        # Verifica se o último comando (ping) foi bem sucedido
+        # Código 0 indica sucesso (host respondeu)
         if resultado.returncode == 0:
             STATUS = "UP"
         else:
