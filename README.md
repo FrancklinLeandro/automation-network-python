@@ -2,7 +2,7 @@
 
 ## Objetivo do Repositório
 
-Este repositório contém **scripts Python** voltados para automação em **Infraestrutura de Redes** — equivalentes funcionais das automações Bash, porém com **maior robustez, organização de código e escalabilidade** para ambientes maiores.
+Este repositório contém **scripts Python** voltados para automação em **Infraestrutura de Redes, suporte e segurança** — equivalentes funcionais das automações Bash, porém com **maior robustez, organização de código e escalabilidade** para ambientes maiores.
 
 O foco é:
 - Diagnóstico de conectividade
