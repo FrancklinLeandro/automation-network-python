@@ -1,7 +1,10 @@
-# 📝 Nota sobre este Repositório
+# 📝 Nota sobre o Repositório
 
-Os scripts Python deste repositório estão atualmente **em desenvolvimento**.
+Este repositório está em evolução contínua, com desenvolvimento progressivo de automações em Python voltadas para **infraestrutura Linux, redes e operações**.
 
-Novas automações estão sendo adicionadas progressivamente.
+Os scripts são aprimorados com foco em:
+- robustez e tratamento de erros  
+- organização e escalabilidade do código  
+- geração de logs estruturados  
 
-Acompanhe o repositório para novidades. 🚀
+Novas automações e melhorias são adicionadas continuamente.
