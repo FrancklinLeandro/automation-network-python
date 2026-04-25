@@ -1,88 +1,80 @@
-# automation-network-python
+# 🚀 automation-network-python
 
-## Objetivo do Repositório
+## 🎯 Objetivo
 
-Este repositório contém **scripts Python** voltados para automação em **Infraestrutura, Redes, suporte e segurança** — equivalentes funcionais das automações Bash, porém com **maior robustez, organização de código e escalabilidade** para ambientes maiores.
+Repositório de automação em **Python** voltado para **infraestrutura Linux, redes e segurança**, com foco em scripts mais **robustos, escaláveis e estruturados** para ambientes maiores.
 
-O foco é:
-- Diagnóstico de conectividade
-- Auditoria básica de segurança
-- Monitoramento de dispositivos
-- Automatização de tarefas repetitivas em ambientes Linux
+Este projeto representa a evolução das automações em Bash, com foco em:
 
-Os scripts são desenvolvidos para uso prático em **laboratórios e ambientes corporativos**.
+- Monitoramento de rede e disponibilidade  
+- Diagnóstico e troubleshooting de conectividade  
+- Auditoria de segurança básica  
+- Automação de tarefas operacionais em ambientes Linux  
+- Geração de logs e relatórios estruturados  
 
 ---
 
-## Por que Python em vez de Bash?
+## 🔥 Casos de Uso
 
-As automações deste repositório cobrem as mesmas tarefas presentes em scripts Bash, com vantagens concretas:
+Os scripts simulam atividades comuns em ambientes de:
+
+- NOC (Network Operations Center)  
+- Infraestrutura Linux  
+- Operações de rede  
+- Auditoria e troubleshooting  
+
+---
+
+## 🆚 Bash vs Python
 
 | Aspecto | Bash | Python |
 |---|---|---|
 | Tratamento de erros | Limitado | Robusto (`try/except`) |
 | Organização do código | Linear | Modular e reutilizável |
 | Escalabilidade | Difícil | Fácil de expandir |
-| Geração de relatórios | Manual | Automatizada e estruturada |
-| Manutenção | Frágil | Clara e documentada |
+| Logs e relatórios | Simples | Estruturados e automatizados |
+| Manutenção | Frágil | Clara e sustentável |
 
 ---
 
-## Tipos de Automações
+## 🛠️ Tipos de Automação
 
-- Verificação de portas TCP
-- Testes de conectividade (ping, nc)
-- Coleta de informações de rede
-- Monitoramento de interfaces
-- Scripts auxiliares para troubleshooting
-- Diagnóstico de rota (traceroute) com geração automática de log diário
-- Auditoria de inventário de switches (comparação entre NetBox e planilha CSV)
+- Verificação de portas TCP (sockets nativos)  
+- Monitoramento de hosts e latência  
+- Diagnóstico de rota (traceroute)  
+- Coleta e análise de informações de rede  
+- Automação de tarefas com logs persistentes  
 
-Cada script contém **documentação detalhada no próprio código**, incluindo objetivo, requisitos e exemplo de uso.
+Todos os scripts incluem:
+- tratamento de erros  
+- validação de entrada  
+- geração de logs estruturados  
 
 ---
 
-## Scripts
+## 📂 Scripts
 
-### switch-csv.py
+### 📡 switch-csv.py
+Monitoramento de switches via **ping em lote (CSV)** com log consolidado
 
-Realiza **teste de conectividade (ping) em múltiplos switches** listados em arquivos CSV, classificando cada dispositivo como **UP ou DOWN** e gerando **relatório consolidado em log**.
-```bash
-./switch-csv.py
-```
+### 📶 ap-scan.py
+Monitoramento de Access Points via ICMP
 
-### ap-scan.py
+### 🔎 TCP-port-checker.py
+Verificação de portas TCP com **sockets nativos e tratamento de erro**
 
-Realiza **verificação de conectividade de Access Points (APs)** via ICMP (`ping`), lendo uma lista estruturada de dispositivos e registrando **status UP/DOWN em log diário**.
-```bash
-./ap-scan.py
-```
+### 🖥️ host-monitor.py
+Monitoramento de conectividade com contagem de hosts **UP/DOWN**
 
-### TCP-port-checker.py
-Realiza **verificação de portas TCP em múltiplos hosts**, utilizando sockets nativos, com **log persistente e tratamento de erros de rede/DNS**.
-```bash
-./TCP-port-checker.py
-```
+### 📊 latency-monitor.py
+Análise de latência e perda de pacotes com parsing via **regex**
 
-### host-monitor.py
-Realiza **monitoramento de conectividade (ping em lote)**, com execução via `subprocess`, log persistente e contagem de hosts UP/DOWN.
-```bash
-./host-monitor.py
-```
+### 🌐 traceroute.py
+Diagnóstico de rota com execução via subprocess e log detalhado
 
-### latency-monitor.py
-Realiza **monitoramento de latência média e perda de pacotes**, com parsing da saída do `ping` via regex e geração de log estruturado.
-```bash
-./latency-monitor.py
-```
+---
 
-### traceroute.py
-Realiza **diagnóstico de rota de rede (traceroute em lote)**, com execução via `subprocess`, validação de dependência e log completo dos hops.
-```bash
-./traceroute.py
-```
-
-## Estrutura do Repositório
+## 🗂️ Estrutura
 ```
 automation-network-python/
 ├── connectivity/
@@ -95,3 +87,11 @@ automation-network-python/
 ├── NOTA.md
 └── README.md
 ```
+---
+
+## 🚀 Diferencial
+
+- Código mais estruturado e escalável que Bash  
+- Tratamento de erros robusto  
+- Logs organizados para análise posterior  
+- Foco em automação de infraestrutura real  
