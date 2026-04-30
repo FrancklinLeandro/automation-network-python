@@ -2,14 +2,14 @@
 
 ## 🎯 Objetivo
 
-Repositório de automação em **Python** voltado para **infraestrutura Linux, redes e segurança**, com foco em scripts mais **robustos, escaláveis e estruturados** para ambientes maiores.
+Repositório de automação em **Python** voltado para **infraestrutura Linux, operações e redes**, com foco em scripts mais **robustos, escaláveis e estruturados** para ambientes reais.
 
 Este projeto representa a evolução das automações em Bash, com foco em:
 
-- Monitoramento de rede e disponibilidade  
+- Administração e monitoramento de infraestrutura Linux  
 - Diagnóstico e troubleshooting de conectividade  
 - Auditoria de segurança básica  
-- Automação de tarefas operacionais em ambientes Linux  
+- Automação de tarefas operacionais  
 - Geração de logs e relatórios estruturados  
 
 ---
@@ -18,9 +18,10 @@ Este projeto representa a evolução das automações em Bash, com foco em:
 
 Os scripts simulam atividades comuns em ambientes de:
 
-- NOC (Network Operations Center)  
 - Infraestrutura Linux  
+- NOC (Network Operations Center)  
 - Operações de rede  
+- Administração de sistemas  
 - Auditoria e troubleshooting  
 
 ---
@@ -42,7 +43,7 @@ Os scripts simulam atividades comuns em ambientes de:
 - Verificação de portas TCP (sockets nativos)  
 - Monitoramento de hosts e latência  
 - Diagnóstico de rota (traceroute)  
-- Coleta e análise de informações de rede  
+- Coleta e análise de informações de sistema e rede  
 - Automação de tarefas com logs persistentes  
 
 Todos os scripts incluem:
@@ -91,7 +92,8 @@ automation-network-python/
 
 ## 🚀 Diferencial
 
-- Código mais estruturado e escalável que Bash  
+- Automação estruturada para **infraestrutura Linux e administração de sistemas**  
+- Código modular, escalável e reutilizável  
 - Tratamento de erros robusto  
-- Logs organizados para análise posterior  
-- Foco em automação de infraestrutura real  
+- Logs organizados para análise e troubleshooting  
+- Foco em automação operacional de ambientes reais   
